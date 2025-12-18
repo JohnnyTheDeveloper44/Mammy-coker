@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Briefcase, MessageSquare, Settings, FileText, Award, TrendingUp, DollarSign, ClipboardList } from 'lucide-react';
+import { Briefcase, MessageSquare, Settings, FileText, Award, TrendingUp, DollarSign, ClipboardList, Bookmark } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
@@ -33,7 +33,9 @@ const ProfessionalDashboard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="Mammy Coker Hub" className="h-10 w-auto" />
+              <div className="bg-white rounded-lg p-1">
+                <img src={logo} alt="Mammy Coker Hub" className="h-8 w-auto" />
+              </div>
               <span className="font-heading font-bold text-lg hidden sm:block">
                 Professional Dashboard
               </span>
@@ -178,6 +180,20 @@ const ProfessionalDashboard = () => {
                     <div>
                       <h3 className="font-semibold">My Applications</h3>
                       <p className="text-sm text-muted-foreground">Track application status</p>
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+
+              <Link to="/dashboard/professional/saved-jobs">
+                <Card className="p-4 hover:shadow-md transition-all cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Bookmark className="text-accent" size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Saved Jobs</h3>
+                      <p className="text-sm text-muted-foreground">Jobs saved for later</p>
                     </div>
                   </div>
                 </Card>

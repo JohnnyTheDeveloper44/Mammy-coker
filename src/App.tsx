@@ -24,16 +24,20 @@ import ProfessionalApplications from "./pages/ProfessionalApplications";
 import EmployerDashboard from "./pages/EmployerDashboard";
 import EmployerSettings from "./pages/EmployerSettings";
 import CreateJob from "./pages/CreateJob";
+import EditJob from "./pages/EditJob";
 import EmployerJobs from "./pages/EmployerJobs";
 import SavedProfessionals from "./pages/SavedProfessionals";
+import SavedJobs from "./pages/SavedJobs";
 import JobApplicants from "./pages/JobApplicants";
 import Jobs from "./pages/Jobs";
 import JobDetails from "./pages/JobDetails";
 import Professionals from "./pages/Professionals";
 import ProfessionalProfile from "./pages/ProfessionalProfile";
+import CompanyProfile from "./pages/CompanyProfile";
 import Messages from "./pages/Messages";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotificationSettings from "./pages/NotificationSettings";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,10 +58,12 @@ const App = () => (
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/faq" element={<FAQ />} />
               <Route path="/jobs" element={<Jobs />} />
               <Route path="/jobs/:id" element={<JobDetails />} />
               <Route path="/professionals" element={<Professionals />} />
               <Route path="/professionals/:id" element={<ProfessionalProfile />} />
+              <Route path="/companies/:id" element={<CompanyProfile />} />
               
               {/* Notification Settings - Protected */}
               <Route path="/notifications/settings" element={
@@ -98,6 +104,11 @@ const App = () => (
                   <ProfessionalApplications />
                 </ProtectedRoute>
               } />
+              <Route path="/dashboard/professional/saved-jobs" element={
+                <ProtectedRoute allowedRoles={['professional']}>
+                  <SavedJobs />
+                </ProtectedRoute>
+              } />
 
               {/* Employer Routes - Protected */}
               <Route path="/onboarding/employer" element={<EmployerOnboarding />} />
@@ -114,6 +125,11 @@ const App = () => (
               <Route path="/dashboard/employer/create-job" element={
                 <ProtectedRoute allowedRoles={['employer']}>
                   <CreateJob />
+                </ProtectedRoute>
+              } />
+              <Route path="/dashboard/employer/jobs/:id/edit" element={
+                <ProtectedRoute allowedRoles={['employer']}>
+                  <EditJob />
                 </ProtectedRoute>
               } />
               <Route path="/dashboard/employer/jobs" element={

@@ -84,9 +84,9 @@ const Jobs = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 page-enter">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-8 animate-fade-in-up">
           <h1 className="font-heading text-4xl font-bold mb-4">Find Your Next Job</h1>
           <p className="text-muted-foreground text-lg">
             Browse opportunities from trusted employers across Sierra Leone
@@ -94,7 +94,7 @@ const Jobs = () => {
         </div>
 
         {/* Search & Filters */}
-        <Card className="p-6 mb-8 card-shadow">
+        <Card className="p-6 mb-8 card-shadow animate-fade-in-up stagger-1 opacity-0">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row gap-3">
               <div className="flex-1 relative">
@@ -329,8 +329,8 @@ const JobsList = ({ jobs }: { jobs: typeof mockJobsData }) => {
   return (
     <>
       <div className="space-y-4">
-        {paginatedItems.map((job) => (
-          <Card key={job.id} className="p-6 hover:shadow-lg transition-all cursor-pointer">
+        {paginatedItems.map((job, index) => (
+          <Card key={job.id} className={`p-6 hover-lift cursor-pointer animate-fade-in-up opacity-0`} style={{ animationDelay: `${index * 0.1}s` }}>
             <Link to={`/jobs/${job.id}`}>
               <div className="flex flex-col md:flex-row justify-between gap-4">
                 <div className="flex-1">

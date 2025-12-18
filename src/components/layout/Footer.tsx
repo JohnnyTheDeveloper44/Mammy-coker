@@ -7,7 +7,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <img src={logo} alt="Mammy Coker Hub" className="h-12 w-auto mb-4" />
+            <div className="bg-white rounded-lg p-1.5 w-fit mb-4">
+              <img src={logo} alt="Mammy Coker Hub" className="h-10 w-auto" />
+            </div>
             <p className="text-sm text-muted-foreground">
               Connecting skilled professionals with opportunities across Sierra Leone
             </p>
@@ -33,6 +35,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
             </ul>

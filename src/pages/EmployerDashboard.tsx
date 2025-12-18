@@ -29,7 +29,9 @@ const EmployerDashboard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="Mammy Coker Hub" className="h-10 w-auto" />
+              <div className="bg-white rounded-lg p-1">
+                <img src={logo} alt="Mammy Coker Hub" className="h-8 w-auto" />
+              </div>
               <span className="font-heading font-bold text-lg hidden sm:block">
                 Employer Dashboard
               </span>

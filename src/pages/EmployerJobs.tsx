@@ -157,12 +157,14 @@ const EmployerJobs = () => {
                     >
                       {job.status === 'active' ? 'Close Job' : 'Reopen Job'}
                     </Button>
-                    <Button
-                      variant="outline"
-                      className="flex-1 lg:flex-initial"
-                    >
-                      <Edit size={16} />
-                    </Button>
+                    <Link to={`/dashboard/employer/jobs/${job.id}/edit`}>
+                      <Button
+                        variant="outline"
+                        className="flex-1 lg:flex-initial w-full"
+                      >
+                        <Edit size={16} />
+                      </Button>
+                    </Link>
                     <Button
                       variant="outline"
                       className="flex-1 lg:flex-initial"

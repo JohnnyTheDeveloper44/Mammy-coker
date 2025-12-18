@@ -37,7 +37,9 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Mammy Coker Hub" className="h-10 w-auto" />
+            <div className="bg-white rounded-lg p-1">
+              <img src={logo} alt="Mammy Coker Hub" className="h-8 w-auto" />
+            </div>
             <span className="font-heading font-bold text-xl hidden sm:block">
               Mammy Coker Hub
             </span>
@@ -45,6 +47,9 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
+            <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
+              Home
+            </Link>
             <Link to="/jobs" className="text-foreground hover:text-primary transition-colors">
               Find Jobs
             </Link>
@@ -127,6 +132,13 @@ export const Navbar = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-3 animate-slide-in">
+            <Link
+              to="/"
+              className="block py-2 text-foreground hover:text-primary font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
             <Link
               to="/jobs"
               className="block py-2 text-foreground hover:text-primary"
