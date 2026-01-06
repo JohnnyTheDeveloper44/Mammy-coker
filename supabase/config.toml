@@ -1,0 +1,7 @@
+project_id = "dctvrcfdlkkvtprsojwl"
+
+[functions.ai-assistant]
+verify_jwt = false
+
+[functions.send-notification]
+verify_jwt = true
