@@ -139,11 +139,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const resetPassword = async (email: string) => {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/auth?tab=login`,
-    });
-    if (error) return { error: error.message };
-    return {};
+    try {
+      // Use custom email template via edge function
+      const response = await supabase.functions.invoke('send-verification-email', {
+        body: {
+          email,
+          type: 'recovery',
+          redirectTo: `${window.location.origin}/auth?tab=login`,
+        },
+      });
+
+      if (response.error || !response.data?.success) {
+        // Fallback to default Supabase email if edge function fails
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/auth?tab=login`,
+        });
+        if (error) return { error: error.message };
+      }
+      
+      return {};
+    } catch (err) {
+      // Fallback to default if edge function call fails
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth?tab=login`,
+      });
+      if (error) return { error: error.message };
+      return {};
+    }
   };
 
   const signInWithGoogle = async () => {

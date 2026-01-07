@@ -1,5 +1,8 @@
 project_id = "dctvrcfdlkkvtprsojwl"
 
+[functions.send-verification-email]
+verify_jwt = false
+
 [functions.ai-assistant]
 verify_jwt = false
 
